@@ -20,17 +20,6 @@ function on_input(x) {
     let len = x.value.length
 	 if (len > x.maxLength) 
          x.value = x.value.slice(0, x.maxLength);
-//      if(inp[len-1] >= '0' && inp[len-1] <='9' ){
-//          console.log(inp);
-//      }
-//     else{
-        
-//         x.value = x.value.replace(".","");
-//         x.value = x.value.replace("-","");
-//          console.log("non char");  
-//     }
-
-
 }
 
 $(".non-neg-dec").keydown(function(e){
@@ -40,4 +29,21 @@ $(".non-neg-dec").keydown(function(e){
         return false;
     }
 });
+
+function logout() {
+    console.log("Logout")
+    $.ajax({
+        type: "post",
+        url: "Logout",
+        success: function (data) {
+            if (data==="success"){
+                window.location.href = "index.jsp";
+            }
+        },
+        error: function (a, b, c) {
+            alert("Error");
+
+        }
+    })
+}
 

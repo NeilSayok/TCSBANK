@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html style="position: relative;min-height: 100%;">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="assets/css/TCS-Bank-Footer.css">
     <link rel="stylesheet" href="assets/css/TCS-Bank-Header.css">
     <link rel="stylesheet" href="assets/css/TCS-Bank-Table.css">
-    <script src="assets/js/script.js"></script>
 </head>
 
 <body class="base-body" style="display: grid;grid-template-rows: 120px auto 220px;">
+
 <%
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     if (session.getAttribute("emp_name")==null){
@@ -25,22 +25,15 @@
     }
 %>
 
-
-
 <header style="height: 120px;width: 100%;background-color: rgb(27,27,26);position: relative;">
     <div style="padding-top: 20px;">
         <p style="margin-left: 10%;color: rgb(255,215,0);font-weight: 700;font-size: x-large;display: inline;">FedChoice</p>
         <p style="display: inline;font-weight: 700;font-size: x-large;color: rgb(241,241,241);">&nbsp;Bank</p>
         <div style="width: 100%;text-align: center;position: absolute;bottom: 0;left: 0;display: inline-block;">
             <ul class="nav nav-tabs" style="width: 80%;text-align: center;margin: auto;/*position: absolute;*/top: 0;background-color: rgb(255,215,0);">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
-                </li>
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
                 <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Customer Management</a>
-                    <div class="dropdown-menu" role="menu">
-                        <a class="dropdown-item" role="presentation" href="create_account.jsp">Create Account</a>
-                        <a class="dropdown-item" role="presentation" href="#">Second Item</a>
-                        <a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                 </li>
                 <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Account Management</a>
                     <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
@@ -51,41 +44,80 @@
                 <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Account Operations</a>
                     <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                 </li>
-                <li   class="nav-item"><a onclick="logout()" class="nav-link" href="#">Logout</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
             </ul>
         </div>
     </div>
 </header>
-
-
-
-
 <div class="main-div" style="width: 100%;height: 100%;">
-    <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Home</h1>
+    <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Update Customer</h1>
     <div class="container create-customer">
         <div class="row">
             <div class="col">
-                <p class="create-customer-fieldtext">Employee ID:</p>
+                <p class="create-customer-fieldtext">Customer SSN ID</p>
             </div>
             <div class="col" style="align-items: center;">
-                <p id="emp_id">${emp_id}</p>
+                <p class="create-customer-fieldtext">%%##ssnid##%%</p>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <p class="create-customer-fieldtext">Employee Name</p>
+                <p class="create-customer-fieldtext">Customer ID</p>
             </div>
             <div class="col" style="align-items: center;">
-                <p id="emp_name">${emp_name}<br></p>
+                <p class="create-customer-fieldtext">%%##custid##%%<br></p>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <p class="create-customer-fieldtext">Employee UID</p>
+                <p class="create-customer-fieldtext">Old Customer Name</p>
             </div>
             <div class="col" style="align-items: center;">
-                <p id="emp_uid">${emp_uname}<br></p>
+                <p>%%##name##%%<br></p>
             </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="create-customer-fieldtext">New Customer Name<span style="color: red;">*</span></p>
+            </div>
+            <div class="col" style="align-items: center;min-width: 1px;"><input type="text" class="updatecustomer-input" style="/*line-height: .1em;*/height: 1.5em;"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="create-customer-fieldtext">Old Address</p>
+            </div>
+            <div class="col" style="align-items: center;">
+                <p class="create-customer-fieldtext">%%##address##%%<br></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="create-customer-fieldtext">New Address<span style="color: red;">*</span></p>
+            </div>
+            <div class="col" style="align-items: center;min-width: 1px;"><input type="text" class="updatecustomer-input" style="/*line-height: .1em;*/height: 1.5em;"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="create-customer-fieldtext">Old Age</p>
+            </div>
+            <div class="col" style="align-items: center;">
+                <p class="create-customer-fieldtext">%%##age##%%<br></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="create-customer-fieldtext">New Age<span style="color: red;">*</span></p>
+            </div>
+            <div class="col" style="align-items: center;min-width: 1px;"><input type="number" class="createcustomer-input non-neg-dec" pattern="\d*" maxlength="9" oninput="on_input(this)" onfocusout="inputValidate(this)"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p style="color: red;font-weight: 700;">(*) Fields are compulsory</p>
+            </div>
+        </div>
+        <div class="row" style="/*text-align: center;*/">
+            <div class="col" style="text-align: right;margin-right: 0px;"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="margin-right: 0px;">Submit</button></div>
+            <div class="col" style="text-align: left;margin-left: 0px;"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="margin-left: 0px;">Reset</button></div>
         </div>
     </div>
 </div>
@@ -139,7 +171,7 @@
 <script src="assets/js/bs-init.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+<script src="assets/js/script.js"></script>
 </body>
 
 </html>
