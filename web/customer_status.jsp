@@ -51,35 +51,33 @@
             </div>
         </div>
     </header>
-    <div class="main-div" style="width: 100%;height: 100%;">
-        <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Create Customer Screen</h1>
-        <div class="container create-customer">
-            <div class="row">
-                <div class="col">
-                    <p class="create-customer-fieldtext">Customer ID:<span style="color: red;">*</span></p>
-                </div>
-                <div class="col" style="align-items: center;"><input type="number" class="createcustomer-input non-neg-dec" pattern="\d*" maxlength="9" oninput="on_input(this)" onfocusout="inputValidate(this)"></div>
-            </div>
-            <div class="row">
-                <div class="col" style="max-width: 194px;">
-                    <p class="create-customer-fieldtext">Account Type:<span style="color: red;">*</span></p>
-                </div>
-                <div class="col" style="align-items: center;"><select style="margin-left: 0px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p class="create-customer-fieldtext">Diposit Ammount:<span style="color: red;">*</span></p>
-                </div>
-                <div class="col" style="align-items: center;"><input type="number" class="createcustomer-input"></div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p style="color: red;font-weight: 700;">(*) Fields are compulsory</p>
-                </div>
-            </div>
-            <div class="row" style="text-align: center;">
-                <div class="col" style="/*text-align: right;*//*margin-right: 0px;*/"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="/*margin-right: 0px;*/width: 50%;">Submit</button></div>
-            </div>
+    <div class="main-div" style="width: 100%;height: 100%;display: flex;flex-direction: column;align-items: center;">
+        <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Customer Status</h1>
+        <div class="table-responsive" style="width: 60%;">
+            <table class="table" style="table-layout: fixed;">
+                <thead class="table-header">
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Customer SSN ID</th>
+                        <th>Status</th>
+                        <th>Message</th>
+                        <th>Last Updated</th>
+                        <th>Operations</th>
+                        <th>View Profile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cell 8</td>
+                        <td>Cell 9</td>
+                        <td>Cell 10</td>
+                        <td>Cell 8</td>
+                        <td>Cell 8</td>
+                        <td>Cell 8</td>
+                        <td>Cell 8</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <footer class="footer">

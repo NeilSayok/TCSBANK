@@ -53,24 +53,24 @@
     </header>
     <div class="main-div" style="width: 100%;height: 100%;">
         <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Create Customer Screen</h1>
-        <div class="container create-customer">
+        <div class="container create-customer" style="opacity: 1;">
             <div class="row">
                 <div class="col">
-                    <p class="create-customer-fieldtext">Customer ID:<span style="color: red;">*</span></p>
+                    <p class="create-customer-fieldtext">Account ID:<span style="color: red;">*</span></p>
                 </div>
                 <div class="col" style="align-items: center;"><input type="number" class="createcustomer-input non-neg-dec" pattern="\d*" maxlength="9" oninput="on_input(this)" onfocusout="inputValidate(this)"></div>
             </div>
             <div class="row">
-                <div class="col" style="max-width: 194px;">
-                    <p class="create-customer-fieldtext">Account Type:<span style="color: red;">*</span></p>
+                <div class="col">
+                    <p class="create-customer-fieldtext">Start Date:<span style="color: red;">*</span></p>
                 </div>
-                <div class="col" style="align-items: center;"><select style="margin-left: 0px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                <div class="col" style="align-items: center;"><input type="text" class="createcustomer-input date-input" placeholder="dd/mm/yyyy"></div>
             </div>
             <div class="row">
                 <div class="col">
-                    <p class="create-customer-fieldtext">Diposit Ammount:<span style="color: red;">*</span></p>
+                    <p class="create-customer-fieldtext">End Date:<span style="color: red;">*</span></p>
                 </div>
-                <div class="col" style="align-items: center;"><input type="number" class="createcustomer-input"></div>
+                <div class="col" style="align-items: center;"><input type="text" class="createcustomer-input date-input" placeholder="dd/mm/yyyy"></div>
             </div>
             <div class="row">
                 <div class="col">
@@ -78,9 +78,10 @@
                 </div>
             </div>
             <div class="row" style="text-align: center;">
-                <div class="col" style="/*text-align: right;*//*margin-right: 0px;*/"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="/*margin-right: 0px;*/width: 50%;">Submit</button></div>
+                <div class="col" style="/*text-align: right;*//*margin-right: 0px;*/"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="/*margin-right: 0px;*/width: 40%;">Submit</button></div>
             </div>
         </div>
+        <div class="statement-tablediv"></div>
     </div>
     <footer class="footer">
         <div style="width: 100%;height: 100%;display: grid;grid-template-rows: 3% 75% 22%;">

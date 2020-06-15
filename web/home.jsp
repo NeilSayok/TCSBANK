@@ -38,7 +38,7 @@
                 </li>
                 <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Customer Management</a>
                     <div class="dropdown-menu" role="menu">
-                        <a class="dropdown-item" role="presentation" href="create_account.jsp">Create Account</a>
+                        <a class="dropdown-item" role="presentation" href="create_customer_screen.jsp">Create Customer</a>
                         <a class="dropdown-item" role="presentation" href="#">Second Item</a>
                         <a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                 </li>

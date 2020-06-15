@@ -56,29 +56,48 @@
         <div class="container create-customer">
             <div class="row">
                 <div class="col">
-                    <p class="create-customer-fieldtext">Customer ID:<span style="color: red;">*</span></p>
+                    <p class="create-customer-fieldtext">Customer SSN ID<span style="color: red;">*</span></p>
                 </div>
                 <div class="col" style="align-items: center;"><input type="number" class="createcustomer-input non-neg-dec" pattern="\d*" maxlength="9" oninput="on_input(this)" onfocusout="inputValidate(this)"></div>
             </div>
             <div class="row">
-                <div class="col" style="max-width: 194px;">
-                    <p class="create-customer-fieldtext">Account Type:<span style="color: red;">*</span></p>
+                <div class="col">
+                    <p class="create-customer-fieldtext">Customer Name<span style="color: red;">*</span></p>
+                </div>
+                <div class="col" style="align-items: center;"><input type="text" class="createcustomer-input" x="/*line-height: .1em;*/height: 1.5em;"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="create-customer-fieldtext">Age<span style="color: red;">*</span></p>
+                </div>
+                <div class="col" style="align-items: center;"><input type="number" class="createcustomer-input non-neg-dec" pattern="\d*" maxlength="3" oninput="on_input(this)" onfocusout="inputValidate(this)"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="create-customer-fieldtext">Address<span style="color: red;">*</span></p>
+                </div>
+                <div class="col" style="align-items: center;"><input type="text" class="createcustomer-input" style="/*line-height: .1em;*/height: 1.5em;"></div>
+            </div>
+            <div class="row">
+                <div class="col" style="max-width: 191px;">
+                    <p class="create-customer-fieldtext">State<span style="color: red;">*</span></p>
                 </div>
                 <div class="col" style="align-items: center;"><select style="margin-left: 0px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
             </div>
             <div class="row">
-                <div class="col">
-                    <p class="create-customer-fieldtext">Diposit Ammount:<span style="color: red;">*</span></p>
+                <div class="col" style="max-width: 192px;">
+                    <p class="create-customer-fieldtext">City<span style="color: red;">*</span></p>
                 </div>
-                <div class="col" style="align-items: center;"><input type="number" class="createcustomer-input"></div>
+                <div class="col" style="align-items: center;"><select style="margin-left: 0px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
             </div>
             <div class="row">
                 <div class="col">
                     <p style="color: red;font-weight: 700;">(*) Fields are compulsory</p>
                 </div>
             </div>
-            <div class="row" style="text-align: center;">
-                <div class="col" style="/*text-align: right;*//*margin-right: 0px;*/"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="/*margin-right: 0px;*/width: 50%;">Submit</button></div>
+            <div class="row" style="/*text-align: center;*/">
+                <div class="col" style="text-align: right;margin-right: 0px;"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="margin-right: 0px;">Submit</button></div>
+                <div class="col" style="text-align: left;margin-left: 0px;"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="margin-left: 0px;">Reset</button></div>
             </div>
         </div>
     </div>
