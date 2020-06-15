@@ -1,0 +1,40 @@
+.tcs-button {
+  background-color: rgb(39,39,39);
+  border-color: rgb(72,72,72);
+  border-radius: 0px;
+  font-weight: 600;
+  padding: 4px;
+  color: rgb(255,215,0);
+}
+
+.tcs-button:hover {
+  background-color: rgb(75,75,75);
+  border-color: rgb(87,87,87);
+  border-radius: 0px;
+  color: rgb(255,215,0);
+  font-weight: 700;
+}
+
+.tcs-button:focus {
+  border-color: rgb(87,87,87);
+  border-radius: 0px;
+  color: rgb(255,215,0);
+  background-color: rgb(39,39,39);
+  border-color: rgb(89,88,88);
+  box-shadow: 0 0 0 .2rem rgba(89,89,89,0.2);
+}
+
+.tcs-button:active {
+  border-color: rgb(87,87,87);
+  border-radius: 0px;
+  color: rgb(255,215,0);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  border-radius: 0px;
+  color: rgb(255,215,0);
+  background-color: rgb(97,97,97);
+  border-color: rgb(97,97,97);
+  font-weight: 700;
+}
+

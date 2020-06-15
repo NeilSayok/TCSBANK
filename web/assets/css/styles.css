@@ -1,0 +1,63 @@
+.main-div {
+  background-image: linear-gradient(to bottom,#a5a5a5 25%, rgb(255,255,255) 75%);
+  background-repeat: no-repeat;
+  padding-top: 8px;
+  padding-bottom: 24px;
+}
+
+.login-internal-divs {
+  width: 100%;
+  height: 100%;
+}
+
+.login-text-input {
+  display: block;
+  width: 90%;
+  margin-top: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  border-color: #e8e8e8;
+  border-width: 2px;
+  box-shadow: none;
+  border-style: solid;
+}
+
+.btn.btn-primary.login-btn {
+  background-color: rgba(0,0,0,0);
+  color: #000;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.statement-tablediv {
+  display: flex;
+  justify-content: center;
+}
+
+.create-customer {
+  width: 25%;
+  min-width: 380px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.create-customer-fieldtext {
+  font-size: medium;
+  font-weight: 600;
+}
+
+.btn.btn-primary.tcs-button.create-customer-btn {
+  width: 90%;
+}
+
+.createcustomer-input {
+  height: 1.5em;
+  border: 1px solid black;
+}
+
+.updatecustomer-input {
+  height: 1.5em;
+  border: 1px solid black;
+  background-color: rgba(0,0,0,0);
+}
+

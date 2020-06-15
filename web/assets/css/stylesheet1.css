@@ -1,0 +1,27 @@
+.create-customer {
+  width: 25%;
+  min-width: 380px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.create-customer-fieldtext {
+  font-size: medium;
+  font-weight: 600;
+}
+
+.btn.btn-primary.tcs-button.create-customer-btn {
+  width: 90%;
+}
+
+.createcustomer-input {
+  height: 1.5em;
+  border: 1px solid black;
+}
+
+.updatecustomer-input {
+  height: 1.5em;
+  border: 1px solid black;
+  background-color: rgba(0,0,0,0);
+}
+
