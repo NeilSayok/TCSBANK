@@ -1,22 +1,22 @@
 function inputValidate(x) {
-	if(x.value.length < x.maxLength){
- 		 x.style.border = "1px solid red"; 
-         }
+    if(x.value.length < x.maxLength){
+        x.style.border = "1px solid red";
+    }
     else
- 		 x.style.border = "1px solid black"; 
+        x.style.border = "1px solid black";
 }
 
 function on_input(x) {
     let inp = x.value;
     let len = x.value.length
-	 if (len > x.maxLength) 
-         x.value = x.value.slice(0, x.maxLength);
+    if (len > x.maxLength)
+        x.value = x.value.slice(0, x.maxLength);
 }
 
 $(".non-neg-dec").keydown(function(e){
-  if(!((e.keyCode > 95 && e.keyCode < 106)
-      || (e.keyCode > 47 && e.keyCode < 58) 
-      || e.keyCode == 8)) {
+    if(!((e.keyCode > 95 && e.keyCode < 106)
+        || (e.keyCode > 47 && e.keyCode < 58)
+        || e.keyCode == 8)) {
         return false;
     }
 });
