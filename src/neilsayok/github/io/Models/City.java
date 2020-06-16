@@ -1,5 +1,7 @@
 package neilsayok.github.io.Models;
 
+
+
 public class City {
     private int id;
     private String city_name;

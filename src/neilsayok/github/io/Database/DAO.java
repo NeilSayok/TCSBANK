@@ -2,6 +2,7 @@ package neilsayok.github.io.Database;
 
 
 import neilsayok.github.io.Models.City;
+import neilsayok.github.io.Models.Customer;
 import neilsayok.github.io.Models.State;
 import org.json.JSONObject;
 
@@ -82,6 +83,10 @@ public class DAO {
             throwables.printStackTrace();
         }
 
-        return cityList;    }
+        return cityList;
+    }
+
+
+
 
 }

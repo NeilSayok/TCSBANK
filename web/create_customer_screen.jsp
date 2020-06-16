@@ -2,6 +2,8 @@
 <%@ page import="neilsayok.github.io.Models.State" %>
 <%@ page import="neilsayok.github.io.Models.City" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <html style="position: relative;min-height: 100%;">
 
 <head>
@@ -93,14 +95,12 @@
                     <p class="create-customer-fieldtext">State<span style="color: red;">*</span></p>
                 </div>
                 <div class="col" style="align-items: center;">
-                    <select onchange="setStateSelect(this.value)" id="city_select" style="margin-left: 0px;">
+                    <select onchange="setStateSelect(this.value)" id="state_select" style="margin-left: 0px;">
                             <option value="" selected disabled hidden>--Select State--</option>
-                            <%
-                                DAO dao = new DAO();
+                            <%DAO dao = new DAO();
                                 for (State s : dao.getAllState()){ %>
                                     <option value="<%=s.getId()%>"><%=s.getName()%></option>
-                                <%}
-                            %>
+                            <%}%>
                 </select>
                 </div>
             </div>
@@ -109,8 +109,8 @@
                     <p class="create-customer-fieldtext">City<span style="color: red;">*</span></p>
                 </div>
                 <div class="col" style="align-items: center;">
-                    <select id="select_state" style="margin-left: 0px;">
-
+                    <select  id="city_select" style="margin-left: 0px;">
+                        <option value="" selected disabled hidden>--Select City--</option>
                     </select>
                 </div>
             </div>
@@ -172,14 +172,49 @@
         </div>
     </footer>
 
+
     <script>
         function setStateSelect(value) {
             $('#city_select').empty();
-            console.log(value);
-            if (value != 0){
-                console.log(value);
+            $('#city_select').append('<option value="" selected disabled hidden>--Loading--</option>');
+            $.ajax({
+                type: "get",
+                url: "GetCities",
+                data: "state_id=" + value ,
+                success: function (data) {
+                    if (data === "error")
+                        alert("Please Relogin");
+                    else {
+                        try {
 
-            }
+                            let jsonData = JSON.parse(data);
+                            if (jsonData.length > 0){
+                                $('#city_select').empty();
+                                $('#city_select').prop('disabled', false);
+                                $('#city_select').append('<option value="" selected disabled hidden>--Select City--</option>');
+                                jsonData.forEach(function(item,index){
+                                    console.log(index,'<option value="'+item.id+'" >'+item.city_name+'</option>');
+                                    $('#city_select').append('<option value="'+item.id+'" >'+item.city_name+'</option>');
+                                });
+                            }else {
+                                $('#city_select').empty();
+                                $('#city_select').prop('disabled', true);
+                                $('#city_select').append('<option value="-1" selected disabled hidden>--No City To Select--</option>');
+                            }
+
+                            }catch (e) {
+                            console.log(e);
+                        }
+                    }
+
+                },
+                error: function (a, b, c) {
+                    alert("Error");
+
+                }
+            });
+
+
         }
     </script>
 
