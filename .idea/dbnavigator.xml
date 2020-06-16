@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="decb9fc1-8d98-468f-b0ff-4860a07b8998">
-        <schema name="tcs_bank" object-types="view, table" />
+        <schema name="tcs_bank" object-types="table, view" />
       </connection>
     </loaded-nodes>
   </component>

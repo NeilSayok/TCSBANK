@@ -52,7 +52,7 @@
         </div>
     </header>
     <div class="main-div" style="width: 100%;height: 100%;">
-        <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Create Customer Screen</h1>
+        <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Create Account</h1>
         <div class="container create-customer">
             <div class="row">
                 <div class="col">

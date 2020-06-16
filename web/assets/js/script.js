@@ -1,11 +1,5 @@
-$( function() {
-    $( ".date-input" ).datepicker({
-      changeMonth: true,
-      changeYear: true,
-      dateFormat: 'dd/mm/yy',
-      yearRange: '1900:'+(new Date()).getFullYear()  
-    });
-  } );
+
+
 
 function inputValidate(x) {
 	if(x.value.length < x.maxLength){
@@ -29,6 +23,14 @@ $(".non-neg-dec").keydown(function(e){
         return false;
     }
 });
+
+$( ".date-input" ).datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: 'dd/mm/yy',
+    yearRange: '1900:'+(new Date()).getFullYear()
+});
+
 
 function logout() {
     console.log("Logout")

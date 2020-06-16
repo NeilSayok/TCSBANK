@@ -1,6 +1,3 @@
-<%@ page import="neilsayok.github.io.Database.DAO" %>
-<%@ page import="neilsayok.github.io.Models.State" %>
-<%@ page import="neilsayok.github.io.Models.City" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html style="position: relative;min-height: 100%;">
 
@@ -17,7 +14,6 @@
     <link rel="stylesheet" href="assets/css/TCS-Bank-Footer.css">
     <link rel="stylesheet" href="assets/css/TCS-Bank-Header.css">
     <link rel="stylesheet" href="assets/css/TCS-Bank-Table.css">
-    <script src="assets/js/script.js"></script>
 </head>
 
 <body class="base-body" style="display: grid;grid-template-rows: 120px auto 220px;">
@@ -56,57 +52,65 @@
         </div>
     </header>
     <div class="main-div" style="width: 100%;height: 100%;">
-        <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Create Customer Screen</h1>
+        <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Update Customer</h1>
         <div class="container create-customer">
             <div class="row">
                 <div class="col">
-                    <p class="create-customer-fieldtext">Customer SSN ID<span style="color: red;">*</span></p>
-                </div>
-                <div class="col" style="align-items: center;"><input type="number" class="createcustomer-input non-neg-dec" pattern="\d*" maxlength="9" oninput="on_input(this)" onfocusout="inputValidate(this)"></div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p class="create-customer-fieldtext">Customer Name<span style="color: red;">*</span></p>
-                </div>
-                <div class="col" style="align-items: center;"><input type="text" class="createcustomer-input" x="/*line-height: .1em;*/height: 1.5em;"></div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p class="create-customer-fieldtext">Age<span style="color: red;">*</span></p>
-                </div>
-                <div class="col" style="align-items: center;"><input type="number" class="createcustomer-input non-neg-dec" pattern="\d*" maxlength="3" oninput="on_input(this)" onfocusout="inputValidate(this)"></div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p class="create-customer-fieldtext">Address<span style="color: red;">*</span></p>
-                </div>
-                <div class="col" style="align-items: center;"><input type="text" class="createcustomer-input" style="/*line-height: .1em;*/height: 1.5em;"></div>
-            </div>
-            <div class="row">
-                <div class="col" style="max-width: 191px;">
-                    <p class="create-customer-fieldtext">State<span style="color: red;">*</span></p>
+                    <p class="create-customer-fieldtext">Customer SSN ID</p>
                 </div>
                 <div class="col" style="align-items: center;">
-                    <select onchange="setStateSelect(this.value)" id="city_select" style="margin-left: 0px;">
-                            <option value="" selected disabled hidden>--Select State--</option>
-                            <%
-                                DAO dao = new DAO();
-                                for (State s : dao.getAllState()){ %>
-                                    <option value="<%=s.getId()%>"><%=s.getName()%></option>
-                                <%}
-                            %>
-                </select>
+                    <p class="create-customer-fieldtext">%%##ssnid##%%</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col" style="max-width: 192px;">
-                    <p class="create-customer-fieldtext">City<span style="color: red;">*</span></p>
+                <div class="col">
+                    <p class="create-customer-fieldtext">Customer ID</p>
                 </div>
                 <div class="col" style="align-items: center;">
-                    <select id="select_state" style="margin-left: 0px;">
-
-                    </select>
+                    <p class="create-customer-fieldtext">%%##custid##%%<br></p>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="create-customer-fieldtext">Old Customer Name</p>
+                </div>
+                <div class="col" style="align-items: center;">
+                    <p>%%##name##%%<br></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="create-customer-fieldtext">New Customer Name<span style="color: red;">*</span></p>
+                </div>
+                <div class="col" style="align-items: center;min-width: 1px;"><input type="text" class="updatecustomer-input" style="/*line-height: .1em;*/height: 1.5em;"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="create-customer-fieldtext">Old Address</p>
+                </div>
+                <div class="col" style="align-items: center;">
+                    <p class="create-customer-fieldtext">%%##address##%%<br></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="create-customer-fieldtext">New Address<span style="color: red;">*</span></p>
+                </div>
+                <div class="col" style="align-items: center;min-width: 1px;"><input type="text" class="updatecustomer-input" style="/*line-height: .1em;*/height: 1.5em;"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="create-customer-fieldtext">Old Age</p>
+                </div>
+                <div class="col" style="align-items: center;">
+                    <p class="create-customer-fieldtext">%%##age##%%<br></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="create-customer-fieldtext">New Age<span style="color: red;">*</span></p>
+                </div>
+                <div class="col" style="align-items: center;min-width: 1px;"><input type="number" class="createcustomer-input non-neg-dec" pattern="\d*" maxlength="9" oninput="on_input(this)" onfocusout="inputValidate(this)"></div>
             </div>
             <div class="row">
                 <div class="col">
@@ -115,11 +119,10 @@
             </div>
             <div class="row" style="/*text-align: center;*/">
                 <div class="col" style="text-align: right;margin-right: 0px;"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="margin-right: 0px;">Submit</button></div>
-                <div class="col" style="text-align: left;margin-left: 0px;"><button class="btn btn-primary tcs-button create-customer-btn" type="button" onclick="location.reload()" style="margin-left: 0px;">Reset</button></div>
+                <div class="col" style="text-align: left;margin-left: 0px;"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="margin-left: 0px;">Reset</button></div>
             </div>
         </div>
     </div>
-
     <footer class="footer">
         <div style="width: 100%;height: 100%;display: grid;grid-template-rows: 3% 75% 22%;">
             <div class="footer-row-divs" style="background-color: rgb(255,215,0);margin: 0px;border-width: 0px;"></div>
@@ -165,23 +168,12 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        function setStateSelect(value) {
-            $('#city_select').empty();
-            console.log(value);
-            if (value != 0){
-                console.log(value);
-
-            }
-        }
-    </script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

@@ -20,48 +20,62 @@
 <body class="base-body" style="display: grid;grid-template-rows: 120px auto 220px;">
 <%
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-    if (session.getAttribute("emp_name")==null){
+    if (session.getAttribute("emp_name") == null) {
         response.sendRedirect("index.jsp");
     }
 %>
 
 
-
 <header style="height: 120px;width: 100%;background-color: rgb(27,27,26);position: relative;">
     <div style="padding-top: 20px;">
-        <p style="margin-left: 10%;color: rgb(255,215,0);font-weight: 700;font-size: x-large;display: inline;">FedChoice</p>
+        <p style="margin-left: 10%;color: rgb(255,215,0);font-weight: 700;font-size: x-large;display: inline;">
+            FedChoice</p>
         <p style="display: inline;font-weight: 700;font-size: x-large;color: rgb(241,241,241);">&nbsp;Bank</p>
         <div style="width: 100%;text-align: center;position: absolute;bottom: 0;left: 0;display: inline-block;">
-            <ul class="nav nav-tabs" style="width: 80%;text-align: center;margin: auto;/*position: absolute;*/top: 0;background-color: rgb(255,215,0);">
+            <ul class="nav nav-tabs"
+                style="width: 80%;text-align: center;margin: auto;/*position: absolute;*/top: 0;background-color: rgb(255,215,0);">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link active" href="home.jsp">Home</a>
                 </li>
-                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Customer Management</a>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Customer Management</a>
                     <div class="dropdown-menu" role="menu">
-                        <a class="dropdown-item" role="presentation" href="create_customer_screen.jsp">Create Customer</a>
-                        <a class="dropdown-item" role="presentation" href="#">Second Item</a>
-                        <a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                        <a class="dropdown-item" role="presentation" href="create_customer_screen.jsp">Create
+                            Customer</a>
+                        <a class="dropdown-item" role="presentation" href="update_customer.jsp">Update Customer</a>
+                        <a class="dropdown-item" role="presentation" href="delete-cutomer.jsp">Delete Customer</a>
+                        <a class="dropdown-item" role="presentation" href="customer_status.jsp">Customer Status</a>
+                    </div>
                 </li>
-                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Account Management</a>
-                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Account Management</a>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation"
+                                                              href="create_account.jsp">Create Account
+                    </a><a class="dropdown-item" role="presentation" href="delete_account.jsp">Delete Account</a><a
+                            class="dropdown-item" role="presentation" href="account_status.jsp">Account Status</a></div>
                 </li>
-                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Status Details</a>
-                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Status Details</a>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First
+                        Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a
+                            class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                 </li>
-                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Account Operations</a>
-                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Account Operations</a>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First
+                        Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a
+                            class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                 </li>
-                <li   class="nav-item"><a onclick="logout()" class="nav-link" href="#">Logout</a></li>
+                <li class="nav-item"><a onclick="logout()" class="nav-link" href="#">Logout</a></li>
             </ul>
         </div>
     </div>
 </header>
 
 
-
-
 <div class="main-div" style="width: 100%;height: 100%;">
-    <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Home</h1>
+    <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">
+        Home</h1>
     <div class="container create-customer">
         <div class="row">
             <div class="col">
@@ -92,44 +106,72 @@
 <footer class="footer">
     <div style="width: 100%;height: 100%;display: grid;grid-template-rows: 3% 75% 22%;">
         <div class="footer-row-divs" style="background-color: rgb(255,215,0);margin: 0px;border-width: 0px;"></div>
-        <div class="footer-row-divs" style="display: grid;grid-template-columns: 50% auto auto;width: 80%;height: 100%;margin: auto;"><div class="footer-text-divs">
-            <div class="div-footer-internal">
-                <h3 class="footer-text-heading">About Us</h3>
+        <div class="footer-row-divs"
+             style="display: grid;grid-template-columns: 50% auto auto;width: 80%;height: 100%;margin: auto;">
+            <div class="footer-text-divs">
+                <div class="div-footer-internal">
+                    <h3 class="footer-text-heading">About Us</h3>
+                </div>
+                <div class="div-footer-internal">
+                    <p class="footer-text-paragraph"><br>FedChoice Bank was founded on 14th June 2016 with the objective
+                        of providing with the detail services based on Retail Banking operations The Retail Internet
+                        Banking of FedChoice Bank offers a plethora of products and services, to cater its customers by
+                        providing certain animus services with an easy evolving offers and ways to do the required job
+                        without hurdling the process</p>
+                </div>
             </div>
-            <div class="div-footer-internal">
-                <p class="footer-text-paragraph"><br>FedChoice Bank was founded on 14th June 2016 with the objective of providing with the detail services based on Retail Banking operations The Retail Internet Banking of FedChoice Bank offers a plethora of products and services, to cater its customers by providing certain animus services with an easy evolving offers and ways to do the required job without hurdling the process</p>
+            <div class="footer-text-divs">
+                <div>
+                    <h3 class="footer-text-heading">Services</h3>
+                </div>
+                <div>
+                    <p class="footer-text-paragraph">
+                        <br>Retail and Consumer Banking
+                        <br>Personal Internet Banking
+                        <br>Corporate Internet Banking
+                        <br>Debit and Credit Card
+                    </p>
+                </div>
             </div>
-        </div><div class="footer-text-divs">
-            <div>
-                <h3 class="footer-text-heading">Services</h3>
+            <div class="footer-text-divs">
+                <div>
+                    <h3 class="footer-text-heading">Contact Us</h3>
+                </div>
+                <div>
+                    <p class="footer-text-paragraph">
+                        <br>Email: customer.service@fedchoice.com
+                        <br>Contact No : 02242406778, 02254567890
+                        <br>Address Corporate Office, Madame Cama Road, Nariman Point, Mumbai, Maharashtra 400021</p>
+                </div>
             </div>
-            <div>
-                <p class="footer-text-paragraph">
-                    <br>Retail and Consumer Banking
-                    <br>Personal Internet Banking
-                    <br>Corporate Internet Banking
-                    <br>Debit and Credit Card
-                </p>
-            </div>
-        </div><div class="footer-text-divs">
-            <div>
-                <h3 class="footer-text-heading">Contact Us</h3>
-            </div>
-            <div>
-                <p class="footer-text-paragraph">
-                    <br>Email: customer.service@fedchoice.com
-                    <br>Contact No : 02242406778, 02254567890
-                    <br>Address Corporate Office, Madame Cama Road, Nariman Point, Mumbai, Maharashtra 400021</p>
-            </div>
-        </div></div>
-        <div class="footer-row-divs" style="background-color: rgb(39,39,39);display: grid;grid-template-columns: 50% 50%;">
-            <div class="copytightdiv-containers"><p style="font-weight: 600;margin: auto;">Copyright&copy; All rights reserved by<span style="color: rgb(255,215,0);"> FedChoice Bank</span></p></div>
+        </div>
+        <div class="footer-row-divs"
+             style="background-color: rgb(39,39,39);display: grid;grid-template-columns: 50% 50%;">
+            <div class="copytightdiv-containers"><p style="font-weight: 600;margin: auto;">Copyright&copy; All rights
+                reserved by<span style="color: rgb(255,215,0);"> FedChoice Bank</span></p></div>
             <div class="copytightdiv-containers">
                 <div>
-                    <p style="color: rgb(255,215,0);display: inline;">Connect Us</p><a data-toggle="tooltip" data-bs-tooltip="" href="https://facebook.com/" style="margin-left: 8px;" title="Facebook"><i class="icon ion-social-facebook footer-icons"></i></a><a data-toggle="tooltip" data-bs-tooltip=""
-                                                                                                                                                                                                                                                                    href="https://twitter.com/" title="Twitter"><i class="icon ion-social-twitter footer-icons" title="Twitter"></i></a><a data-toggle="tooltip" data-bs-tooltip="" href="https://www.google.com/" title="Google+"><i class="icon ion-social-googleplus footer-icons" title="Google+"></i></a>
+                    <p style="color: rgb(255,215,0);display: inline;">Connect Us</p><a data-toggle="tooltip"
+                                                                                       data-bs-tooltip=""
+                                                                                       href="https://facebook.com/"
+                                                                                       style="margin-left: 8px;"
+                                                                                       title="Facebook"><i
+                        class="icon ion-social-facebook footer-icons"></i></a><a data-toggle="tooltip"
+                                                                                 data-bs-tooltip=""
+                                                                                 href="https://twitter.com/"
+                                                                                 title="Twitter"><i
+                        class="icon ion-social-twitter footer-icons" title="Twitter"></i></a><a data-toggle="tooltip"
+                                                                                                data-bs-tooltip=""
+                                                                                                href="https://www.google.com/"
+                                                                                                title="Google+"><i
+                        class="icon ion-social-googleplus footer-icons" title="Google+"></i></a>
                     <a
-                            data-toggle="tooltip" data-bs-tooltip="" href="https://in.linkedin.com/" title="Linkdin"><i class="icon ion-social-linkedin footer-icons"></i></a><a data-toggle="tooltip" data-bs-tooltip="" href="https://www.instagram.com/" title="Instagram"><i class="icon ion-social-instagram footer-icons"></i></a></div>
+                            data-toggle="tooltip" data-bs-tooltip="" href="https://in.linkedin.com/" title="Linkdin"><i
+                            class="icon ion-social-linkedin footer-icons"></i></a><a data-toggle="tooltip"
+                                                                                     data-bs-tooltip=""
+                                                                                     href="https://www.instagram.com/"
+                                                                                     title="Instagram"><i
+                        class="icon ion-social-instagram footer-icons"></i></a></div>
             </div>
         </div>
     </div>

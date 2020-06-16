@@ -1,10 +1,12 @@
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
   background-color: rgb(0,0,0);
   border-color: rgb(0,0,0);
-  font-weight: 650;
+  font-weight: 700;
   border-radius: 0px;
   color: white;
 }
+
+
 
 .nav-tabs .nav-link {
   color: black;
@@ -14,7 +16,7 @@
 }
 
 .nav-tabs:hover .nav-link:hover {
-  font-weight: 650;
+  font-weight: 700;
   border-color: black;
 }
 
