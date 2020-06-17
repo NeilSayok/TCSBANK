@@ -48,8 +48,8 @@
                     <div class="dropdown-menu" role="menu">
                         <a class="dropdown-item" role="presentation" href="create_customer_screen.jsp">Create
                             Customer</a>
-                        <a class="dropdown-item" role="presentation" href="update_customer.jsp">Update Customer</a>
-                        <a class="dropdown-item" role="presentation" href="delete-cutomer.jsp">Delete Customer</a>
+                        <a class="dropdown-item" role="presentation" href="customer-search.jsp?job=upadate_cust">Update Customer</a>
+                        <a class="dropdown-item" role="presentation" href="customer-search.jsp?job=delete_cust">Delete Customer</a>
                         <a class="dropdown-item" role="presentation" href="customer_status.jsp">Customer Status</a>
                     </div>
                 </li>
