@@ -53,13 +53,13 @@ public class DAO {
     }
 
     public List<State> getAllState(){
-        String query = "SELECT * FROM tcs_bank.states ORDER BY `name`";
+        String query = "SELECT * FROM tcs_bank.states ORDER BY `state`";
         List<State> stateList = new ArrayList<>();
         try {
             ResultSet rs = smt.executeQuery(query);
             while (rs.next()){
                 stateList.add(new State(rs.getInt("id"),
-                        rs.getString("name"),
+                        rs.getString("state"),
                         rs.getInt("country_id")));
             }
         } catch (SQLException throwables) {

@@ -1,3 +1,5 @@
+<%@ page import="neilsayok.github.io.Database.CustomerDAO" %>
+<%@ page import="neilsayok.github.io.Models.CustomerDet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html style="position: relative;min-height: 100%;">
 
@@ -14,6 +16,13 @@
     <link rel="stylesheet" href="assets/css/TCS-Bank-Footer.css">
     <link rel="stylesheet" href="assets/css/TCS-Bank-Header.css">
     <link rel="stylesheet" href="assets/css/TCS-Bank-Table.css">
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="assets/js/script.js"></script>
 </head>
 
 <body class="base-body" style="display: grid;grid-template-rows: 120px auto 220px;">
@@ -51,14 +60,16 @@
             </div>
         </div>
     </header>
-    <div class="main-div" style="width: 100%;height: 100%;display: flex;flex-direction: column;align-items: center;">
+
+<div class="main-div" style="width: 100%;height: 100%;display: flex;flex-direction: column;align-items: center;">
         <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Customer Status</h1>
-        <div class="table-responsive" style="width: 60%;">
+        <div class="table-responsive" style="width: 80%;">
             <table class="table" style="table-layout: fixed;">
                 <thead class="table-header">
                     <tr>
                         <th>Customer ID</th>
                         <th>Customer SSN ID</th>
+                        <th>Name</th>
                         <th>Status</th>
                         <th>Message</th>
                         <th>Last Updated</th>
@@ -67,20 +78,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Cell 8</td>
-                        <td>Cell 9</td>
-                        <td>Cell 10</td>
-                        <td>Cell 8</td>
-                        <td>Cell 8</td>
-                        <td>Cell 8</td>
-                        <td>Cell 8</td>
-                    </tr>
+                    <%
+                        CustomerDAO dao = new CustomerDAO();
+                        for (CustomerDet c: dao.getAllCustomers()) {%>
+                            <tr id="tr_<%=c.getCust_id()%>">
+                                <td id="cust_id"><%=c.getCust_id()%></td>
+                                <td id="ssn_id"><%=c.getSsn_id()%></td>
+                                <td id="cust_name"><%=c.getCust_name()%></td>
+                                <td id="cust_stat"><%=c.getCust_stat()%></td>
+                                <td id="cust_msg"><%=c.getCust_msg()%></td>
+                                <td id="cust_upd"><%=c.getCust_last_update_string()%></td>
+                                <td><a href="#" onclick="refreshTag('tr_<%=c.getCust_id()%>',<%=c.getCust_id()%>)"><u>Refresh</u></a></td>
+                                <td><a href="#"><u>View Details</u></a></td>
+                            </tr>
+                    <%}%>
+
                 </tbody>
             </table>
         </div>
     </div>
-    <footer class="footer">
+
+<footer class="footer">
         <div style="width: 100%;height: 100%;display: grid;grid-template-rows: 3% 75% 22%;">
             <div class="footer-row-divs" style="background-color: rgb(255,215,0);margin: 0px;border-width: 0px;"></div>
             <div class="footer-row-divs" style="display: grid;grid-template-columns: 50% auto auto;width: 80%;height: 100%;margin: auto;"><div class="footer-text-divs">
@@ -125,12 +143,34 @@
             </div>
         </div>
     </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="assets/js/script.js"></script>
+
+<script>
+    function refreshTag(tagId,id) {
+        console.log(tagId,id);
+        $.ajax({
+            type: 'post',
+            url: 'GetCustomer',
+            data: 'id='+id,
+            success: function (data) {
+                console.log(data);
+                let json = JSON.parse(data)
+
+                $("#"+tagId+" #cust_id").text(json['cust_id']);
+                $("#"+tagId+" #ssn_id").text(json['ssn_id']);
+                $("#"+tagId+" #cust_name").text(json['cust_name']);
+                $("#"+tagId+" #cust_stat").text(json['cust_stat']);
+                $("#"+tagId+" #cust_msg").text(json['cust_msg']);
+                $("#"+tagId+" #cust_upd").text(json['cust_last_update_string']);
+            },
+            error: function(a,b,c){
+                alert("Error, Please Try Agian");
+            }
+        })
+    }
+</script>
+
+
+
 </body>
 
 </html>

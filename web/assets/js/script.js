@@ -1,8 +1,7 @@
 function inputValidate(x) {
-	if(x.value.length < x.maxLength){
+	if(x.value.length < x.maxLength && x.maxLength>3){
  		 x.style.border = "1px solid red"; 
-         }
-    else
+	}else
  		 x.style.border = "1px solid black"; 
 }
 
