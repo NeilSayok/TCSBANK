@@ -1,3 +1,5 @@
+<%@ page import="neilsayok.github.io.Models.CustomerDet" %>
+<%@ page import="neilsayok.github.io.Database.CustomerDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html style="position: relative;min-height: 100%;">
 
@@ -14,6 +16,13 @@
     <link rel="stylesheet" href="assets/css/TCS-Bank-Footer.css">
     <link rel="stylesheet" href="assets/css/TCS-Bank-Header.css">
     <link rel="stylesheet" href="assets/css/TCS-Bank-Table.css">
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="assets/js/script.js"></script>
 </head>
 
 <body class="base-body" style="display: grid;grid-template-rows: 120px auto 220px;">
@@ -24,6 +33,8 @@
     if (session.getAttribute("emp_name")==null){
         response.sendRedirect("index.jsp");
     }
+    CustomerDet customer;
+    customer = new CustomerDAO().getCustomerByCustID(Integer.parseInt(request.getParameter("custid")));
 %>
 
 
@@ -51,7 +62,8 @@
             </div>
         </div>
     </header>
-    <div class="main-div" style="width: 100%;height: 100%;">
+
+<div class="main-div" style="width: 100%;height: 100%;">
         <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Update Customer</h1>
         <div class="container create-customer">
             <div class="row">
@@ -59,7 +71,7 @@
                     <p class="create-customer-fieldtext">Customer SSN ID</p>
                 </div>
                 <div class="col" style="align-items: center;">
-                    <p class="create-customer-fieldtext">%%##ssnid##%%</p>
+                    <p id="ssn_id" class="create-customer-fieldtext"><%=customer.getSsn_id()%></p>
                 </div>
             </div>
             <div class="row">
@@ -67,7 +79,7 @@
                     <p class="create-customer-fieldtext">Customer ID</p>
                 </div>
                 <div class="col" style="align-items: center;">
-                    <p class="create-customer-fieldtext">%%##custid##%%<br></p>
+                    <p id="cust_id" class="create-customer-fieldtext"><%=customer.getCust_id()%></p>
                 </div>
             </div>
             <div class="row">
@@ -75,42 +87,42 @@
                     <p class="create-customer-fieldtext">Old Customer Name</p>
                 </div>
                 <div class="col" style="align-items: center;">
-                    <p>%%##name##%%<br></p>
+                    <p class="create-customer-fieldtext"><%=customer.getCust_name()%></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <p class="create-customer-fieldtext">New Customer Name<span style="color: red;">*</span></p>
                 </div>
-                <div class="col" style="align-items: center;min-width: 1px;"><input type="text" class="updatecustomer-input" style="/*line-height: .1em;*/height: 1.5em;"></div>
+                <div class="col" style="align-items: center;min-width: 1px;"><input id="name_inp" type="text" class="updatecustomer-input" style="/*line-height: .1em;*/height: 1.5em;"></div>
             </div>
             <div class="row">
                 <div class="col">
                     <p class="create-customer-fieldtext">Old Address</p>
                 </div>
                 <div class="col" style="align-items: center;">
-                    <p class="create-customer-fieldtext">%%##address##%%<br></p>
+                    <p class="create-customer-fieldtext"><%=customer.getCust_address()%></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <p class="create-customer-fieldtext">New Address<span style="color: red;">*</span></p>
                 </div>
-                <div class="col" style="align-items: center;min-width: 1px;"><input type="text" class="updatecustomer-input" style="/*line-height: .1em;*/height: 1.5em;"></div>
+                <div class="col" style="align-items: center;min-width: 1px;"><input id="add_inp" type="text" class="updatecustomer-input" style="/*line-height: .1em;*/height: 1.5em;"></div>
             </div>
             <div class="row">
                 <div class="col">
                     <p class="create-customer-fieldtext">Old Age</p>
                 </div>
                 <div class="col" style="align-items: center;">
-                    <p class="create-customer-fieldtext">%%##age##%%<br></p>
+                    <p class="create-customer-fieldtext"><%=customer.getCust_age()%></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <p class="create-customer-fieldtext">New Age<span style="color: red;">*</span></p>
                 </div>
-                <div class="col" style="align-items: center;min-width: 1px;"><input type="number" class="createcustomer-input non-neg-dec" pattern="\d*" maxlength="9" oninput="on_input(this)" onfocusout="inputValidate(this)"></div>
+                <div class="col" style="align-items: center;min-width: 1px;"><input id="age_inp" type="number" class="createcustomer-input non-neg-dec" pattern="\d*" maxlength="9" oninput="on_input(this)" onfocusout="inputValidate(this)"></div>
             </div>
             <div class="row">
                 <div class="col">
@@ -118,12 +130,13 @@
                 </div>
             </div>
             <div class="row" style="/*text-align: center;*/">
-                <div class="col" style="text-align: right;margin-right: 0px;"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="margin-right: 0px;">Submit</button></div>
-                <div class="col" style="text-align: left;margin-left: 0px;"><button class="btn btn-primary tcs-button create-customer-btn" type="button" style="margin-left: 0px;">Reset</button></div>
+                <div class="col" style="text-align: right;margin-right: 0px;"><button class="btn btn-primary tcs-button create-customer-btn" type="button" onclick="updateCustomer()" style="margin-right: 0px;">Submit</button></div>
+                <div class="col" style="text-align: left;margin-left: 0px;"><button class="btn btn-primary tcs-button create-customer-btn" type="button" onclick="location.reload()" style="margin-left: 0px;">Reset</button></div>
             </div>
         </div>
     </div>
-    <footer class="footer">
+
+<footer class="footer">
         <div style="width: 100%;height: 100%;display: grid;grid-template-rows: 3% 75% 22%;">
             <div class="footer-row-divs" style="background-color: rgb(255,215,0);margin: 0px;border-width: 0px;"></div>
             <div class="footer-row-divs" style="display: grid;grid-template-columns: 50% auto auto;width: 80%;height: 100%;margin: auto;"><div class="footer-text-divs">
@@ -168,12 +181,27 @@
             </div>
         </div>
     </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="assets/js/script.js"></script>
+
+<script>
+    function updateCustomer() {
+        //TODO update the customer
+        console.log("Submit Presssed");
+        $.ajax({
+            type: "post",
+            url: "UpdateCustomer",
+            data : "custid="+$("#cust_id").text()+"&address="+$("#add_inp").val()+"&age="+$("#age_inp").val()+"&name="+$("#name_inp").val(),
+            success: function (data) {
+                if (window.confirm(data+"\nPress Ok to go to Home Page\nPress Cancel to stay on this page")) {
+                    window.location.href = "home.jsp";
+                }
+            },
+            error:function (a,b,c) {
+                alert("Error");
+            }
+        })
+    }
+</script>
+
 </body>
 
 </html>

@@ -55,7 +55,52 @@ public class CustomerDAO {
     }
 
     //UPDATE Customer
+    public int updateCustomerByID(int id,CustomerDet c){
+        String query = "UPDATE `tcs_bank`.`customer` SET ";
+
+        query += "`cust_msg`= 'Updated Successfully', ";
+
+        if (c.getCust_name() != null){
+            query += "`cust_name`='"+c.getCust_name() +"', ";
+        }
+        if (c.getCust_age() != null){
+            query += "`cust_age`='"+c.getCust_age() +"', ";
+        }
+        if (c.getCust_address() != null){
+            query += "`cust_address`='"+c.getCust_address() +"', ";
+        }
+        if (c.getCust_city() != null){
+            query += "`cust_city`='"+c.getCust_city() +"', ";
+        }
+        if (c.getCust_state() != null){
+            query += "`cust_state`='"+c.getCust_state() +"', ";
+        }
+        if (c.getCust_stat() != null){
+            query += "`cust_stat`='"+c.getCust_stat() +"', ";
+        }
+        query += "`cust_last_update`='"+System.currentTimeMillis()+"' ";
+
+        query += " WHERE (`cust_id` = '"+id+"')";
+        System.out.println(query);
+
+        try {
+            return smt.executeUpdate(query);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
     //DELETE CUSTOMER
+    public int deleteCustomerByID(int id){
+        String query = "DELETE FROM `tcs_bank`.`customer` WHERE (`cust_id` = '"+id+"')";
+
+        try {
+            return smt.executeUpdate(query);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
     //READ ALL CUSTOMER
     public List<CustomerDet> getAllCustomers(){
         List<CustomerDet> customerList = new ArrayList<>();

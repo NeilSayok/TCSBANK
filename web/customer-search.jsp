@@ -71,8 +71,8 @@
 
 <script>
     function continueJob(){
-        console.log($("#ssnid_inp").val());
-        console.log($("#custid_inp").val());
+        //console.log($("#ssnid_inp").val());
+        //console.log($("#custid_inp").val());
         if ($("#ssnid_inp").val() || $("#custid_inp").val()){
             if ($("#ssnid_inp").val() && $("#ssnid_inp").val().length !== 9){
                 alert("Please Enter a Valid SSN ID");
@@ -83,7 +83,7 @@
                     data : "ssnid="+$("#ssnid_inp").val()+"&custid="+$("#custid_inp").val(),
                     success: function (data) {
 
-                        console.log(data);
+                        //console.log(data);
                         let json = JSON.parse(JSON.parse(data).toString());
                         if (json['found']===false){
                             alert("No customer with the respective ID found");

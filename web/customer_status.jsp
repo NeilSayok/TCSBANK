@@ -89,7 +89,7 @@
                                 <td id="cust_msg"><%=c.getCust_msg()%></td>
                                 <td id="cust_upd"><%=c.getCust_last_update_string()%></td>
                                 <td><a href="#" onclick="refreshTag('tr_<%=c.getCust_id()%>',<%=c.getCust_id()%>)"><u>Refresh</u></a></td>
-                                <td><a href="#"><u>View Details</u></a></td>
+                                <td><a href="view_details.jsp?custid=<%=c.getCust_id()%>&ssnid=<%=c.getSsn_id()%>"><u>View Details</u></a></td>
                             </tr>
                     <%}%>
 

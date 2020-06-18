@@ -1,26 +1,27 @@
 package neilsayok.github.io.Models;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CustomerDet {
 
-    private int cust_id;
-    private int ssn_id;
+    private Integer cust_id;
+    private Integer ssn_id;
     private String cust_name;
-    private int cust_age;
+    private Integer cust_age;
     private String cust_address;
     private String cust_city;
     private String cust_state;
     private String cust_stat;
     private String cust_msg;
-    private long cust_last_update;
+    private Long cust_last_update;
     private String cust_last_update_string;
 
 
 
     public CustomerDet() {
-        if (cust_last_update != 0){
+        if (cust_last_update != null){
             setCust_last_update_string(getCust_last_update_string());
         }
     }
@@ -37,24 +38,24 @@ public class CustomerDet {
         this.cust_stat = cust_stat;
         this.cust_msg = cust_msg;
         this.cust_last_update = cust_last_update;
-        if (cust_last_update != 0){
+        if (cust_last_update != 0  ){
             setCust_last_update_string(getCust_last_update_string());
         }
     }
 
-    public int getCust_id() {
+    public Integer getCust_id() {
         return cust_id;
     }
 
-    public void setCust_id(int cust_id) {
+    public void setCust_id(Integer cust_id) {
         this.cust_id = cust_id;
     }
 
-    public int getSsn_id() {
+    public Integer getSsn_id() {
         return ssn_id;
     }
 
-    public void setSsn_id(int ssn_id) {
+    public void setSsn_id(Integer ssn_id) {
         this.ssn_id = ssn_id;
     }
 
@@ -66,11 +67,11 @@ public class CustomerDet {
         this.cust_name = cust_name;
     }
 
-    public int getCust_age() {
+    public Integer getCust_age() {
         return cust_age;
     }
 
-    public void setCust_age(int cust_age) {
+    public void setCust_age(Integer cust_age) {
         this.cust_age = cust_age;
     }
 
@@ -114,15 +115,19 @@ public class CustomerDet {
         this.cust_msg = cust_msg;
     }
 
-    public long getCust_last_update() {
+    public Long getCust_last_update() {
         return cust_last_update;
     }
 
-
-
-    public void setCust_last_update(long cust_last_update) {
+    public void setCust_last_update(Long cust_last_update) {
         this.cust_last_update = cust_last_update;
     }
+
+
+
+
+
+
 
     public void setCust_last_update_string(String cust_last_update_string) {
         this.cust_last_update_string = cust_last_update_string;
