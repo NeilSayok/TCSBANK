@@ -81,6 +81,8 @@ public class CustomerDAO {
         query += "`cust_last_update`='"+System.currentTimeMillis()+"' ";
 
         query += " WHERE (`cust_id` = '"+id+"')";
+
+
         System.out.println(query);
 
         try {

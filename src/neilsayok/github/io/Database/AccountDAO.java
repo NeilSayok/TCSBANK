@@ -27,13 +27,9 @@ public class AccountDAO {
 
     public int createAccount(Account a){
 
-        return 0;
-    }
-
-    public  int updateAccount(Account a){
         String query = "INSERT INTO `tcs_bank`.`account` (`customer_id`, `acc_type`, `acc_stat`, `acc_msg`, `acc_last_upd`)" +
                 " VALUES" +
-                " ('"+a.getCustomer_id()+"', '"+a.getAcc_type()+"', '"+a.getAcc_status()+"', '"+a.getAcc_msg()+"'," +
+                " ('"+a.getCustomer_id()+"', '"+a.getAcc_type()+"', 'Account Created Successfully', '"+a.getAcc_msg()+"'," +
                 " '"+System.currentTimeMillis()+"')";
         try {
             return smt.executeUpdate(query);
@@ -43,7 +39,55 @@ public class AccountDAO {
         return 0;
     }
 
-    public int updateAccountByAccID(int id,Account a){
+    public  int updateAccount(AccountDeT a){
+        String query = "UPDATE `tcs_bank`.`account` SET ";
+        query += "`acc_msg`= 'Account Updated Successfully', ";
+        if (a.getAcc_id() != null){
+            query += "`acc_id`='"+a.getAcc_id() +"', ";
+        }
+        if (a.getCustomer_id() != null){
+            query += "`customer_id`='"+a.getCustomer_id() +"', ";
+        }
+        if (a.getAcc_type() != null){
+            query += "`acc_type`='"+a.getAcc_type() +"', ";
+        }
+        if (a.getAcc_status() != null){
+            query += "`acc_stat`='"+a.getAcc_status() +"', ";
+        }
+        query += "`acc_last_upd`='"+System.currentTimeMillis()+"' ";
+        query += " WHERE (`acc_id` = '"+a.getAcc_id()+"')";
+
+        try {
+            return smt.executeUpdate(query);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int updateAccountByAccID(int id,AccountDeT a){
+        String query = "UPDATE `tcs_bank`.`account` SET ";
+        query += "`acc_msg`= 'Account Updated Successfully', ";
+        if (a.getAcc_id() != null){
+            query += "`acc_id`='"+a.getAcc_id() +"', ";
+        }
+        if (a.getCustomer_id() != null){
+            query += "`customer_id`='"+a.getCustomer_id() +"', ";
+        }
+        if (a.getAcc_type() != null){
+            query += "`acc_type`='"+a.getAcc_type() +"', ";
+        }
+        if (a.getAcc_status() != null){
+            query += "`acc_stat`='"+a.getAcc_status() +"', ";
+        }
+        query += "`acc_last_upd`='"+System.currentTimeMillis()+"' ";
+        query += " WHERE (`acc_id` = '"+id+"')";
+
+        try {
+            return smt.executeUpdate(query);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return 0;
     }
 
