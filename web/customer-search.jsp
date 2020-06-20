@@ -83,7 +83,6 @@
                     data : "ssnid="+$("#ssnid_inp").val()+"&custid="+$("#custid_inp").val(),
                     success: function (data) {
 
-                        //console.log(data);
                         let json = JSON.parse(JSON.parse(data).toString());
                         if (json['found']===false){
                             alert("No customer with the respective ID found");

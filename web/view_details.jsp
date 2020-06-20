@@ -1,5 +1,7 @@
 <%@ page import="neilsayok.github.io.Models.CustomerDet" %>
 <%@ page import="neilsayok.github.io.Database.CustomerDAO" %>
+<%@ page import="neilsayok.github.io.Database.AccountDAO" %>
+<%@ page import="neilsayok.github.io.Models.AccountDeT" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html style="position: relative;min-height: 100%;">
 
@@ -37,27 +39,47 @@
 
 %>
 
-
 <header style="height: 120px;width: 100%;background-color: rgb(27,27,26);position: relative;">
     <div style="padding-top: 20px;">
-        <p style="margin-left: 10%;color: rgb(255,215,0);font-weight: 700;font-size: x-large;display: inline;">FedChoice</p>
+        <p style="margin-left: 10%;color: rgb(255,215,0);font-weight: 700;font-size: x-large;display: inline;">
+            FedChoice</p>
         <p style="display: inline;font-weight: 700;font-size: x-large;color: rgb(241,241,241);">&nbsp;Bank</p>
         <div style="width: 100%;text-align: center;position: absolute;bottom: 0;left: 0;display: inline-block;">
-            <ul class="nav nav-tabs" style="width: 80%;text-align: center;margin: auto;/*position: absolute;*/top: 0;background-color: rgb(255,215,0);">
-                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Customer Management</a>
-                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+            <ul class="nav nav-tabs"
+                style="width: 80%;text-align: center;margin: auto;/*position: absolute;*/top: 0;background-color: rgb(255,215,0);">
+                <li class="nav-item">
+                    <a class="nav-link active" href="home.jsp">Home</a>
                 </li>
-                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Account Management</a>
-                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Customer Management</a>
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" role="presentation" href="create_customer_screen.jsp">Create
+                            Customer</a>
+                        <a class="dropdown-item" role="presentation" href="customer-search.jsp?job=upadate_cust">Update Customer</a>
+                        <a class="dropdown-item" role="presentation" href="customer-search.jsp?job=delete_cust">Delete Customer</a>
+                        <a class="dropdown-item" role="presentation" href="customer_status.jsp">Customer Status</a>
+                    </div>
                 </li>
-                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Status Details</a>
-                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Account Management</a>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation"
+                                                              href="create_account.jsp">Create Account
+                    </a><a class="dropdown-item" role="presentation" href="delete_account.jsp">Delete Account</a><a
+                            class="dropdown-item" role="presentation" href="account_status.jsp">Account Status</a></div>
                 </li>
-                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Account Operations</a>
-                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Status Details</a>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First
+                        Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a
+                            class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Account Operations</a>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First
+                        Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a
+                            class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                </li>
+                <li class="nav-item"><a onclick="logout()" class="nav-link" href="#">Logout</a></li>
             </ul>
         </div>
     </div>
@@ -132,23 +154,24 @@
                     <th>Account Status</th>
                     <th>Account Message</th>
                     <th>Last Update</th>
-                    <th>Operation</th>
-                    <th>View Account</th>
 
 
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Cell 8</td>
-                    <td>Cell 9</td>
-                    <td>Cell 10</td>
-                    <td>Cell 8</td>
-                    <td>Cell 9</td>
-                    <td><a href="#" ><u>Refresh</u></a></td>
-                    <td><a href="#"><u>View Details</u></a></td>
+                <%
+                    AccountDAO dao = new AccountDAO();
+                    for(AccountDeT a : dao.getAllAccountsByCustID(Integer.parseInt(request.getParameter("custid")))){%>
+                        <tr id="tr_<%=a.getAcc_id()%>">
+                            <td><%=a.getAcc_id()%></td>
+                            <td><%=a.getAcc_type()%>></td>
+                            <td><%=a.getAcc_status()%></td>
+                            <td><%=a.getAcc_msg()%>/td>
+                            <td><%=a.getAcc_last_upd_string()%></td>
+                        </tr>
+                    <%}
+                %>
 
-                </tr>
                 </tbody>
             </table>
         </div>

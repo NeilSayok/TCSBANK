@@ -28,29 +28,50 @@
 
 
 <header style="height: 120px;width: 100%;background-color: rgb(27,27,26);position: relative;">
-        <div style="padding-top: 20px;">
-            <p style="margin-left: 10%;color: rgb(255,215,0);font-weight: 700;font-size: x-large;display: inline;">FedChoice</p>
-            <p style="display: inline;font-weight: 700;font-size: x-large;color: rgb(241,241,241);">&nbsp;Bank</p>
-            <div style="width: 100%;text-align: center;position: absolute;bottom: 0;left: 0;display: inline-block;">
-                <ul class="nav nav-tabs" style="width: 80%;text-align: center;margin: auto;/*position: absolute;*/top: 0;background-color: rgb(255,215,0);">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Customer Management</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Account Management</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Status Details</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Account Operations</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
-                </ul>
-            </div>
+    <div style="padding-top: 20px;">
+        <p style="margin-left: 10%;color: rgb(255,215,0);font-weight: 700;font-size: x-large;display: inline;">
+            FedChoice</p>
+        <p style="display: inline;font-weight: 700;font-size: x-large;color: rgb(241,241,241);">&nbsp;Bank</p>
+        <div style="width: 100%;text-align: center;position: absolute;bottom: 0;left: 0;display: inline-block;">
+            <ul class="nav nav-tabs"
+                style="width: 80%;text-align: center;margin: auto;/*position: absolute;*/top: 0;background-color: rgb(255,215,0);">
+                <li class="nav-item">
+                    <a class="nav-link active" href="home.jsp">Home</a>
+                </li>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Customer Management</a>
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" role="presentation" href="create_customer_screen.jsp">Create
+                            Customer</a>
+                        <a class="dropdown-item" role="presentation" href="customer-search.jsp?job=upadate_cust">Update Customer</a>
+                        <a class="dropdown-item" role="presentation" href="customer-search.jsp?job=delete_cust">Delete Customer</a>
+                        <a class="dropdown-item" role="presentation" href="customer_status.jsp">Customer Status</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Account Management</a>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation"
+                                                              href="create_account.jsp">Create Account
+                    </a><a class="dropdown-item" role="presentation" href="delete_account.jsp">Delete Account</a><a
+                            class="dropdown-item" role="presentation" href="account_status.jsp">Account Status</a></div>
+                </li>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Status Details</a>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First
+                        Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a
+                            class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                </li>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                                                 aria-expanded="false" href="#">Account Operations</a>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First
+                        Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a
+                            class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                </li>
+                <li class="nav-item"><a onclick="logout()" class="nav-link" href="#">Logout</a></li>
+            </ul>
         </div>
-    </header>
+    </div>
+</header>
     <div class="main-div" style="width: 100%;height: 100%;">
         <h1 class="item-heading" style="text-align: center;padding-bottom: 16px;padding-top: 16px;font-size: x-large;">Create Customer Screen</h1>
         <div class="container create-customer" style="opacity: 1;">

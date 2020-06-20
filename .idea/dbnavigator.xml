@@ -23,11 +23,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="decb9fc1-8d98-468f-b0ff-4860a07b8998">
-        <schema name="tcs_bank" object-types="table, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="decb9fc1-8d98-468f-b0ff-4860a07b8998">
@@ -298,7 +294,6 @@
           <content-type name="GSP" enabled="true" />
           <content-type name="ASP" enabled="true" />
           <content-type name="VTL" enabled="true" />
-          <content-type name="AIDL" enabled="true" />
           <content-type name="YAML" enabled="true" />
           <content-type name="Flex" enabled="true" />
           <content-type name="Manifest" enabled="true" />
