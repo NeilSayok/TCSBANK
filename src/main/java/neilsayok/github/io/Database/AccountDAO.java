@@ -134,7 +134,8 @@ public class AccountDAO {
                 "FROM `tcs_bank`.`account` a " +
                 "left join `tcs_bank`.`acctype` atp on (a.acc_type=atp.acc_type) " +
                 "left join `tcs_bank`.`status` st on(a.acc_stat=st.stat) WHERE `acc_id`="+id;
-        return getAccountDeTS(new ArrayList<>(), query).get(0);
+        List<AccountDeT> acc = new ArrayList<>();
+        return getAccountDeTS(acc, query).get(0);
     }
 
     public int deletAccountByAccId(int id){
